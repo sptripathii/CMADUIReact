@@ -1,0 +1,108 @@
+.app {
+  display: block;
+  position: relative;
+}
+
+.split {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.purpleHilite {
+  color: #663399;
+}
+
+.tableContainer {
+  display: block;
+  position: relative;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0px;
+  margin-left: 0px;
+  padding: 0px;
+  padding-left: 5px;
+}
+
+li {
+  margin: 0px;
+  padding: 0px;
+}
+
+.react-redux-grid-active,
+.react-redux-grid-inactive {
+  margin: 5px;
+  border-radius: 5px;
+  background-color: #49b8dc;
+}
+
+.react-redux-grid-active {
+  color: white;
+  background-color: #644581;
+}
+
+.gridH2 {
+  font-family: "Bree Serif", serif;
+  font-size: 18px;
+  color: #2813e4;
+  font-weight: normal;
+  margin: 0px;
+  margin-bottom: 10px;
+  padding: 0px;
+  margin-top: 10px;
+}
+
+:focus {
+  border: none;
+  outline: none;
+}
+
+#dashboardPie {
+  color: red;
+  width: 40%;
+  float: left;
+  padding: 30px;
+}
+
+#dashboardRefresh {
+  color: rgb(73, 73, 128);
+  width: 30%;
+  float: left;
+}
+.formInterval {
+  float: left !important;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+}
+.form input[type="text"] {
+  font-family: sans-serif;
+  outline: 1;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.form button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #065784;
+  width: 100%;
+  border: 0;
+  padding: 5px;
+  color: #ffffff;
+  font-size: 12px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}

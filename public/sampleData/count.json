@@ -1,0 +1,18 @@
+[
+   {
+      "key": "warning",
+      "value": 10
+   },
+   {
+      "key": "error",
+      "value": 5
+   },
+   {
+      "key": "info",
+      "value": 8
+   },
+   {
+      "key": "alert",
+      "value": 2
+   }
+]

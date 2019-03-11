@@ -1,0 +1,15 @@
+{
+    "presets": [
+        "react",
+        "env"
+    ],
+    "plugins": [
+        "babel-plugin-transform-array-from",
+        "stylus-compiler",
+        "syntax-function-bind",
+        "transform-class-properties",
+        "transform-object-rest-spread",
+        "transform-export-extensions",
+        "react-hot-loader/babel",
+    ]
+}

@@ -1,0 +1,120 @@
+.gridHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  background-color: #1d40b3;
+  min-height: 116px;
+  padding: 20px;
+  color: white;
+  border-bottom: 1px dotted #ddd;
+  flex-wrap: wrap;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  color: #4b0082;
+}
+
+.title-container {
+  display: flex;
+  flex: 1;
+}
+
+.gridHeader h1 {
+  font-family: "Bree Serif", serif;
+  font-size: 40px;
+  font-weight: normal;
+  color: #1d40b3;
+  margin: 0px;
+  padding: 0px;
+}
+
+.listContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  right: 50px;
+}
+
+.listContainer img {
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.flex {
+  display: flex;
+}
+
+.gridHeader h3 {
+  font-family: "Bree Serif", serif;
+  font-size: 16px;
+  color: #384e97;
+  font-weight: normal;
+  font-style: italic;
+  margin: 0px;
+  padding: 0px;
+}
+
+.fixed-header,
+.fixed-footer {
+  width: 100%;
+  position: fixed;
+  background: #384e97;
+  color: #fff;
+  text-align: center;
+}
+
+.fixed-header {
+  top: 0;
+  left: 0;
+  font-size: 32px;
+}
+
+.fixed-footer {
+  bottom: 0;
+  left: 0;
+  padding: 5px 0;
+}
+
+.container {
+  width: 80%;
+  margin: 0 auto; /* Center the DIV horizontally */
+}
+
+.dashboard {
+  width: 40%;
+  margin-top: 80px; /* Center the DIV horizontally */
+  margin-left: 600px;
+}
+
+.grid {
+  width: 100%;
+  margin-top: 50px; /* Center the DIV horizontally */
+}
+
+.react-grid-Header {
+  box-shadow: 0px 0px 4px 0px #dddddd;
+  background: #384e97 !important;
+}
+
+.react-grid-HeaderCell {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background: #384e97 !important;
+  padding: 8px;
+  font-weight: bold;
+  border: 1px solid #000 !important;
+  border-bottom: 1px solid #dddddd;
+}
+
+.react-grid-Cell {
+  background-color: #b4aeae !important;
+  padding-left: 8px;
+  padding-right: 8px;
+  border: 1px solid #000 !important;
+  border-bottom: 1px solid #000 !important;
+}
