@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     tools {
-      nodejs 'NodeJS 4.8.6'
+      nodejs 'NodeJS 6.4.0'
     }
 
     stages {
