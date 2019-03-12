@@ -1,43 +1,79 @@
 import React from "react";
-import { fetchUser } from "../../rest/ajax.js";
-import store from "../../stores/store.js";
+import { fetchUser } from "../../rest/userAjax.js";
+import userPropStore from "../../stores/userPropStore.js";
 import "../../css/Header.css";
 import "../../css/App.css";
+import Select from "@material-ui/core/Select";
+import MenuItem from "@material-ui/core/MenuItem";
+import FormControl from "@material-ui/core/FormControl";
+import InputLabel from "@material-ui/core/InputLabel";
 
-class RefreshInterval extends React.Component {
+const styles = theme => ({
+  root: {
+    display: "flex",
+    flexWrap: "wrap"
+  },
+  formControl: {
+    margin: theme.spacing.unit,
+    minWidth: 120
+  },
+  selectEmpty: {
+    marginTop: theme.spacing.unit * 2
+  }
+});
+
+class DashboardRefreshInterval extends React.Component {
   constructor(props) {
     super(props);
-    store.subscribe(() => {
+    userPropStore.subscribe(() => {
       this.forceUpdate();
       this.setState({
-        refreshInterval: store.getState().user.refreshInterval
+        refreshInterval: this.props.user.refreshInterval
       });
     });
 
-    console.log("Refresh Interval constructor...", store.getState());
     this.state = {
-      refreshInterval: 10
+      refreshInterval: 20
     };
+    this.handleChange = this.handleChange.bind(this);
   }
 
   async componentDidMount() {
-    fetchUser();
-    console.log(
-      "My User details:",
-      JSON.stringify(store.getState().user.userName)
-    );
+    fetchUser(this.props.authToken);
   }
 
   handleSubmit(event) {
     event.preventDefault();
     console.log("I am clicked");
   }
+  handleChange(event) {
+    event.preventDefault();
+    console.log("I am changed");
+    this.setState({ refreshInterval: event.target.value });
+    //this.props.userPropStore.user.setState()
+  }
 
   render() {
     return (
-      <div id="dashboardRefresh" className="formInterval">
+      <FormControl style={styles.formControl}>
+        <InputLabel />
         <form onSubmit={this.handleSubmit}>
-          <label>
+          <Select
+            value={this.state.refreshInterval}
+            onChange={this.handleChange}
+            inputProps={{
+              name: "refreshInterval",
+              id: "refreshInterval"
+            }}
+          >
+            <MenuItem value="">
+              <em>5</em>
+            </MenuItem>
+            <MenuItem value={10}>Ten</MenuItem>
+            <MenuItem value={20}>Twenty</MenuItem>
+            <MenuItem value={30}>Thirty</MenuItem>
+          </Select>
+          {/* <label>
             Refresh Interval:
             <input
               type="select"
@@ -45,11 +81,11 @@ class RefreshInterval extends React.Component {
               name="refreshInterval"
               value={this.state.refreshInterval}
             />
-          </label>
+          </label> */}
         </form>
-      </div>
+      </FormControl>
     );
   }
 }
 
-export default RefreshInterval;
+export default DashboardRefreshInterval;

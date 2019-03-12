@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ReactDataGrid from "react-data-grid";
-import { fetchLogsForGrid } from "../rest/ajax.js";
-import store from "../stores/store.js";
+import { fetchLogsForGrid } from "../../rest/ajax.js";
+import store from "../../stores/store.js";
 
 const columns = [
   { key: "ipaddress", name: "SOURCE IP", resizable: true },

@@ -3,7 +3,6 @@ import { Link, withRouter } from "react-router-dom";
 import {
   AppBar,
   Toolbar,
-  IconButton,
   Typography,
   Hidden,
   Drawer,
@@ -12,9 +11,10 @@ import {
   MenuItem
 } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
-import { Menu } from "@material-ui/icons";
 import { compose } from "recompose";
 import DashboardPage from "../DataComponents/DashboardPage.jsx";
+import UserListPage from "../DataComponents/UserListPage.jsx";
+import Footer from "./Footer";
 
 const drawerWidth = 240;
 
@@ -50,25 +50,41 @@ const styles = theme => ({
   },
   nested: {
     paddingLeft: theme.spacing.unit * 4
+  },
+  centerHidden: {
+    visibility: "hidden"
+  },
+  centerVisible: {
+    visibility: "visible"
   }
 });
 
 class AfterLogin extends Component {
   state = {
-    mobileOpen: false
+    displayComponent: "DashboardPage"
   };
 
-  handleDrawerToggle = () => {
-    this.setState({ mobileOpen: !this.state.mobileOpen });
-  };
+  constructor(props) {
+    super(props);
+    this.setState({
+      displayComponent: "DashboardPage" // key defining which component to display
+    });
+    this.selectComponent = this.selectComponent.bind(this);
+  }
+
+  selectComponent(component) {
+    this.setState({
+      displayComponent: component // set the component you want to display
+    });
+  }
 
   render() {
+    console.log("After login page info toke", this.props.authToken);
     const {
       classes,
       location: { pathname },
       children
     } = this.props;
-    const { mobileOpen } = this.state;
 
     const drawer = (
       <div>
@@ -76,32 +92,34 @@ class AfterLogin extends Component {
           <div className={classes.toolbar} />
         </Hidden>
         <MenuList>
-          <MenuItem component={Link} to="/" selected={"/" === pathname}>
-            Home
-          </MenuItem>
           <MenuItem
-            onClick={() => this.props.history.push("/DashboardPage")}
             component={Link}
             to={DashboardPage}
             selected={"/DashboardPage" === pathname}
+            onClick={() => this.selectComponent("DashboardPage")}
           >
             Dashboard
           </MenuItem>
           <MenuItem
             component={Link}
-            to="/users"
-            selected={"/users" === pathname}
+            to={UserListPage}
+            selected={"/UserListPage" === pathname}
+            onClick={() => this.selectComponent("UserListPage")}
           >
             Users
           </MenuItem>
-          <MenuItem
+          <MenuItem component={Link} to="/" selected={"/" === pathname}>
+            Logout
+          </MenuItem>
+          {/* <MenuItem
             component={Link}
             to="/logout"
             selected={"/logout" === pathname}
           >
             Logout
-          </MenuItem>
+          </MenuItem> */}
         </MenuList>
+        <Footer />
       </div>
     );
 
@@ -112,34 +130,11 @@ class AfterLogin extends Component {
         <div className={classes.root}>
           <AppBar position="absolute" className={classes.appBar}>
             <Toolbar>
-              <IconButton
-                color="inherit"
-                aria-label="open drawer"
-                onClick={this.handleDrawerToggle}
-                className={classes.navIconHide}
-              >
-                <Menu />
-              </IconButton>
               <Typography variant="title" color="inherit" noWrap>
                 NMS Log Manager
               </Typography>
             </Toolbar>
           </AppBar>
-          <Hidden mdUp>
-            <Drawer
-              variant="temporary"
-              open={mobileOpen}
-              onClose={this.handleDrawerToggle}
-              classes={{
-                paper: classes.drawerPaper
-              }}
-              ModalProps={{
-                keepMounted: true // Better open performance on mobile.
-              }}
-            >
-              {drawer}
-            </Drawer>
-          </Hidden>
           <Hidden smDown implementation="css">
             <Drawer
               variant="permanent"
@@ -152,7 +147,14 @@ class AfterLogin extends Component {
             </Drawer>
           </Hidden>
           <main className={classes.content}>
-            <div className={classes.toolbar} />
+            <div id="center" className={classes.toolbar}>
+              {this.state.displayComponent === "DashboardPage" && (
+                <DashboardPage authToken={this.props.authToken} />
+              )}
+              {this.state.displayComponent === "UserListPage" && (
+                <UserListPage authToken={this.props.authToken} />
+              )}
+            </div>
             {children}
           </main>
         </div>

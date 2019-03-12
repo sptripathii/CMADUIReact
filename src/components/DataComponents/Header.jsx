@@ -1,7 +1,7 @@
 import React from "react";
 import "../../css/Header.css";
 
-class Header extends React.Component {
+class Logo extends React.Component {
   render() {
     return (
       <div className="fixed-header">
@@ -11,4 +11,4 @@ class Header extends React.Component {
   }
 }
 
-export default Header;
+export default Logo;

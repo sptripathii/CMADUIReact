@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import ReactDOM from "react-dom";
 import ReactDataGrid from "react-data-grid";
 import { fetchLogsForGrid } from "../../rest/ajax.js";
 import store from "../../stores/store.js";
@@ -39,7 +38,7 @@ class DashboardGrid extends React.Component {
     store.subscribe(() => {
       this.forceUpdate();
     });
-    fetchLogsForGrid();
+    fetchLogsForGrid(this.props.authToken);
     console.log("Grid constructor...", store.getState());
   }
 
