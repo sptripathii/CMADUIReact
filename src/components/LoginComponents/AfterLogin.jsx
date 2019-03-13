@@ -79,7 +79,7 @@ class AfterLogin extends Component {
   }
 
   render() {
-    console.log("After login page info toke", this.props.authToken);
+    //console.log("After login page info toke", this.props.authToken);
     const {
       classes,
       location: { pathname },

@@ -1,10 +1,12 @@
 import store from "../stores/store.js";
 
-const syslogResourceURL = "http://localhost:8083/nmsLogsManager/v1/syslog";
-const countResourceURL = "http://localhost:8083/nmsLogsManager/v1/syslog/count";
+const syslogResourceURL =
+  "http://localhost:8080/nmslog-manager/nmsLogsManager/v1/syslog?page=";
+const countResourceURL =
+  "http://localhost:8080/nmslog-manager/nmsLogsManager/v1/syslog/count";
 
 export function fetchLogsForGrid(authToken) {
-  console.log("Sudhanshu fetch token", authToken);
+  let queryURL = syslogResourceURL + store.getState().pageNumber;
   var get_params = {
     method: "GET",
     mode: "cors",
@@ -12,12 +14,13 @@ export function fetchLogsForGrid(authToken) {
       "x-auth-access-token": authToken
     }
   };
-  return fetch(syslogResourceURL, get_params).then(response => {
+  return fetch(queryURL, get_params).then(response => {
     if (response.ok) {
       response.json().then(json => {
         store.dispatch({
           type: "grid",
-          logs: json
+          logs: json,
+          pageNumber: store.getState().pageNumber + 1
         });
       });
     }

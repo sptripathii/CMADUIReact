@@ -16,7 +16,7 @@ function userReducer(
         devicesList: state.devicesList
       };
     case "login":
-      console.log("User logged in successfully", action.userId);
+      console.log("User logged in successfully", action.userName);
       return {
         user: {
           userName: action.userName,

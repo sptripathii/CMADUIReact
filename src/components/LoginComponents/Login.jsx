@@ -53,10 +53,8 @@ class Login extends Component {
   }
 
   handleClick(event) {
-    // var apiBaseUrl = "http://localhost:4000/api/";
     console.log("Login::Dispatching event for user login", this.state.username);
     onLogin(this.state.username, this.state.password, this.props.history);
-    setTimeout(100);
   }
 
   render() {
@@ -64,7 +62,7 @@ class Login extends Component {
       <div>
         <MuiThemeProvider muiTheme={getMuiTheme(muiTheme)}>
           <div>
-            <AppBar title="NMS Log Manager" />
+            <AppBar title="NMS Log Manager app" />
             <div style={centerStyle}>
               <Logo style={logoStyle} />
               <TextField
