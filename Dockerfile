@@ -11,7 +11,7 @@ FROM maven:3.6.0-jdk-8 as mvnbuild
 
 WORKDIR /opt/nmslogui
 
-COPY --from=build /opt/nmslogui/* .
+COPY --from=build /opt/nmslogui/* /opt/nmslogui/
 
 RUN mvn clean install
     
