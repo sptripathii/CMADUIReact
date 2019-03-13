@@ -37,6 +37,16 @@
                 <executions>
                   
                     <execution>
+                        <id>install node and npm</id>
+                        <goals>
+                            <goal>install-node-and-npm</goal>
+                        </goals>
+                        <configuration>
+                            <nodeVersion>v7.10.0</nodeVersion>
+                        </configuration>
+                    </execution>
+                         
+                    <execution>
                         <id>npm run build (compile)</id>
                         <goals>
                             <goal>exec</goal>
