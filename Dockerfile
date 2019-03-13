@@ -7,9 +7,11 @@ COPY . .
 RUN npm install
 
 
-FROM maven:3.6.0-jdk-8 as build
+FROM maven:3.6.0-jdk-8 as mvnbuild
 
 WORKDIR /opt/nmslogui
+
+COPY --from=build /opt/nmslogui/* .
 
 RUN mvn clean install
     
@@ -20,5 +22,5 @@ WORKDIR /opt
 
 RUN apt-get -y update
 
-COPY --from=build /opt/nmslogui/target/nmslogui.war /usr/local/tomcat/webapps/
+COPY --from=mvnbuild /opt/nmslogui/target/nmslogui.war /usr/local/tomcat/webapps/
 
