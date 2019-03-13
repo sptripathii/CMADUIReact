@@ -17,7 +17,7 @@ pipeline {
                 echo 'Building..'
                 sh 'npm install'
             }
-            }
+        }
 
         stage('Test') {
             steps {
@@ -29,7 +29,6 @@ pipeline {
             steps {
                 echo 'Packaging....'
 		sh 'npm run build'
-                archiveArtifacts artifacts: '**/distribution/*.zip', fingerprint: true
             }
         }
         stage('Building image') {
