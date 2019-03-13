@@ -7,7 +7,7 @@ COPY . .
 RUN npm install
 
 
-FROM maven:3.6.0-jdk-8 as mvnbuild
+FROM rowanto/docker-java8-mvn-nodejs-npm as mvnbuild
 
 WORKDIR /opt/nmslogui
 
