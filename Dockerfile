@@ -10,7 +10,7 @@ RUN npm install  \
 RUN mv /opt/nmslog-ui/build/static /opt/nmslog-ui/
 
 
-FROM be-test-image:latest
+FROM sptripathii/be-test-image:latest
 
 WORKDIR /opt
 
