@@ -1,0 +1,30 @@
+[
+    {
+        "id": "1",
+        "ipaddress": "10.1.1.1",
+        "type": "warning",
+        "message": "STANDBY-6-STATECHANGE: Vlan42 Group 42 state Standby -> Active",
+        "timestamp": "Sep 16 08:50:47.359"
+    },
+    {
+        "id": "2",
+        "ipaddress": "10.1.1.1",
+        "type": "warning",
+        "message": "STANDBY-6-STATECHANGE: Vlan42 Group 42 state Standby -> Active",
+        "timestamp": "Sep 16 08:50:47.359"
+    },
+    {
+        "id": "3",
+        "ipaddress": "10.1.1.1",
+        "type": "warning",
+        "message": "STANDBY-6-STATECHANGE: Vlan42 Group 42 state Standby -> Active",
+        "timestamp": "Sep 16 08:50:47.359"
+    },
+    {
+        "id": "4",
+        "ipaddress": "10.1.1.1",
+        "type": "warning",
+        "message": "STANDBY-6-STATECHANGE: Vlan42 Group 42 state Standby -> Active",
+        "timestamp": "Sep 16 08:50:47.359"
+    }
+]

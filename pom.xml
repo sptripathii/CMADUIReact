@@ -3,7 +3,7 @@
   
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.cisco.nmslog</groupId>
-    <artifactId>NMSUI</artifactId>
+    <artifactId>nmslogui</artifactId>
     <version>1.0</version>
     <packaging>war</packaging>
 
@@ -13,7 +13,7 @@
     </properties>
 
     <build>
-        <finalName>${project.artifactId}</finalName>
+        <finalName>nmslogui</finalName>
         <plugins>
             <!-- Standard plugin to generate WAR -->
             <plugin>
