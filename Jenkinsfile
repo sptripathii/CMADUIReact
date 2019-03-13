@@ -4,6 +4,12 @@ pipeline {
     tools {
       nodejs 'NodeJS 11.8.0'
     }
+    
+    environment {
+           registry = "sptripathii/be-ui-image"
+           registryCredential = 'dockerhub'
+           dockerImage = ''
+    }
 
     stages {
         stage('Build') {
@@ -26,5 +32,23 @@ pipeline {
                 archiveArtifacts artifacts: '**/distribution/*.zip', fingerprint: true
             }
         }
+        stage('Building image') {
+            steps{
+	       echo 'Building docker image...'	    
+               script {
+                  dockerImage = docker.build(registry)
+               }
+            }      
+        } 
+        stage('Deploy Image') {
+             steps{
+	       echo 'Deploying docker image...'     
+                script {
+                     docker.withRegistry( '', registryCredential ) {
+                         dockerImage.push()
+               	     }
+                }
+             }
+         }
     }
 }
