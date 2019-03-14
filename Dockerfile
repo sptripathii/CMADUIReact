@@ -1,21 +1,18 @@
-FROM rowanto/docker-java8-mvn-nodejs-npm as build
+FROM node:11.11.0-alpine as build
 
 WORKDIR /opt/nmslogui
 
 COPY . .
 
-RUN npm install
-
-RUN npm run build
-
-RUN mvn clean install
-    
+RUN npm install \
+    && npm run build
 
 FROM sptripathii/be-test-image:latest
 
 WORKDIR /opt
 
+RUN mkdir /usr/local/tomcat/webapps/nmslogui
+
 RUN apt-get -y update
 
-COPY --from=build /opt/nmslogui/target/nmslogui.war /usr/local/tomcat/webapps/
-
+COPY --from=build /opt/nmslogui/build/ /usr/local/tomcat/webapps/nmslogui/
