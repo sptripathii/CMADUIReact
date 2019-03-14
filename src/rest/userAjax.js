@@ -1,12 +1,9 @@
 import userStore from "../stores/userStore";
 import userPropStore from "../stores/userStore";
 
-const loginResourceURL =
-  "http://localhost:8080/nmslog-manager/nmsLogsManager/v1/user/login";
-const userResourceURL =
-  "http://localhost:8080/nmslog-manager/nmsLogsManager/v1/user/admin";
-const usersResourceURL =
-  "http://localhost:8080/nmslog-manager/nmsLogsManager/v1/user/";
+const loginResourceURL = "/nmslog-manager/nmsLogsManager/v1/user/login";
+const userResourceURL = "/nmslog-manager/nmsLogsManager/v1/user/admin";
+const usersResourceURL = "/nmslog-manager/nmsLogsManager/v1/user/";
 
 export function onLogin(username, password, history) {
   console.log("Logging in with user", username);

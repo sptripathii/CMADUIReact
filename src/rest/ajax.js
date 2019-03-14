@@ -1,9 +1,7 @@
 import store from "../stores/store.js";
 
-const syslogResourceURL =
-  "http://localhost:8080/nmslog-manager/nmsLogsManager/v1/syslog?page=";
-const countResourceURL =
-  "http://localhost:8080/nmslog-manager/nmsLogsManager/v1/syslog/count";
+const syslogResourceURL = "/nmslog-manager/nmsLogsManager/v1/syslog?page=";
+const countResourceURL = "/nmslog-manager/nmsLogsManager/v1/syslog/count";
 
 export function fetchLogsForGrid(authToken) {
   let queryURL = syslogResourceURL + store.getState().pageNumber;
