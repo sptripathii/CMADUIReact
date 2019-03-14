@@ -1,7 +1,6 @@
 {
   "name": "nms-monitoring",
   "version": "0.1.0",
-  "homepage": "http://localhost:8080/sptui",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^3.9.2",
