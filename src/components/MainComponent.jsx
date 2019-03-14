@@ -10,7 +10,7 @@ import userPropStore from "../stores/userStore";
 class MainComponent extends React.Component {
   render() {
     return (
-      <BrowserRouter basename={process.env.REACT_APP_ROUTER_BASE || ""}>
+      <BrowserRouter basename="nmslogui">
         <Switch>
           <Route exact path="/" render={props => <Login {...props} />} />
           <Route exact path="/login" render={props => <Login {...props} />} />

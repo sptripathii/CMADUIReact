@@ -62,7 +62,7 @@ class Login extends Component {
       <div>
         <MuiThemeProvider muiTheme={getMuiTheme(muiTheme)}>
           <div>
-            <AppBar title="NMS Log Manager app" />
+            <AppBar title="SPT's NMS Log Manager " />
             <div style={centerStyle}>
               <Logo style={logoStyle} />
               <TextField
