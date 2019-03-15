@@ -12,14 +12,22 @@ import Paper from "@material-ui/core/Paper";
 const styles = theme => ({
   root: {
     width: "80%",
-    marginTop: theme.spacing.unit * 3,
+    marginTop: "180px",
     overflowX: "auto"
   },
   table: {
-    minWidth: 500
+    minWidth: 500,
+    borderStyle: "groove",
+    marginTop: "60px"
+  },
+  divTag: {
+    marginTop: "60px"
   }
 });
-
+const tableStyle = {
+  marginTop: "60px",
+  borderStyle: "groove"
+};
 class UserListPage extends React.Component {
   constructor(props) {
     super(props);
@@ -43,35 +51,60 @@ class UserListPage extends React.Component {
     var myrows = userStore.getState().userList;
     if (myrows !== undefined && myrows.length > 0)
       return (
-        <Paper className={styles.root}>
-          <Table className={styles.table}>
-            <TableHead style={headStyle}>
-              <TableRow>
-                <TableCell align="center">User Id</TableCell>
-                <TableCell align="center">User Name</TableCell>
-                <TableCell align="center">Devices</TableCell>
-                <TableCell align="center">Refresh Interval</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {myrows.map(row => (
-                <TableRow key={row.userid}>
-                  <TableCell align="center">{row.userid}</TableCell>
-                  <TableCell align="center">{row.userName}</TableCell>
-                  <TableCell align="center">{row.devices}</TableCell>
-                  <TableCell align="center">{row.refreshInterval}</TableCell>
+        <div className={styles.divTag}>
+          <Paper className={styles.root}>
+            <Table style={tableStyle}>
+              <TableHead style={headStyle}>
+                <TableRow>
+                  <TableCell align="center" borderStyle="groove">
+                    User Id
+                  </TableCell>
+                  <TableCell align="center" borderStyle="groove">
+                    User Name
+                  </TableCell>
+                  <TableCell align="center" borderStyle="groove">
+                    Devices
+                  </TableCell>
+                  <TableCell align="center" borderStyle="groove">
+                    Refresh Interval
+                  </TableCell>
                 </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </Paper>
+              </TableHead>
+              <TableBody>
+                {myrows.map(row => (
+                  <TableRow borderStyle="groove" key={row.userid}>
+                    <TableCell align="center" borderStyle="groove">
+                      {row.userid}
+                    </TableCell>
+                    <TableCell align="center" borderStyle="groove">
+                      {row.userName}
+                    </TableCell>
+                    <TableCell align="center" borderStyle="groove">
+                      {row.devices}
+                    </TableCell>
+                    <TableCell align="center" borderStyle="groove">
+                      {row.refreshInterval}
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </Paper>
+        </div>
       );
     return <div />;
   }
 }
 
 const headStyle = {
-  background: "#3f51b5"
+  backgroundColor: "#4969d4",
+  background: "#439ce2",
+  color: "#f2f2f2",
+  fontSize: "1em",
+  fontWeight: "800",
+  border: "rgba(0, 0, 0, 0.87)",
+  borderStyle: "solid",
+  top: "60px"
 };
 
 export default withStyles(styles)(UserListPage);

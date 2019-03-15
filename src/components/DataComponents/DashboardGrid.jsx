@@ -55,6 +55,9 @@ class DashboardGrid extends React.Component {
   componentDidUpdate() {
     this.attachScrollListener();
   }
+  componentDidMount() {
+    fetchLogsForGrid(this.props.authToken);
+  }
 
   attachScrollListener() {
     if (this.props.initialLoad) {
